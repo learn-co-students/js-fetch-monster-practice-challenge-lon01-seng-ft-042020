@@ -8,6 +8,8 @@ const buttonForward = document.getElementById('forward');
 const buttonBack = document.getElementById('back');
 const monstersURL = `http://localhost:3000/monsters/`
 const container = document.getElementById('monster-container');
+const divForm = document.getElementById('create-monster');
+
 let page =1
 
 function createMonsterDiv(monster) {
@@ -35,10 +37,6 @@ function getAllMonsters() {
     .then(data => renderAllMonsters(data))
     .catch(error => console.log(error))
 }
-
-
-const divForm = document.getElementById('create-monster');
-
 
 function createMonsterForm() {
     const form = document.createElement('form');
@@ -87,13 +85,11 @@ buttonForward.addEventListener('click', e => movePageForward(e))
 buttonBack.addEventListener('click', e => movePageBack(e))
 
 function movePageForward(e) {
-    // e.preventDefault();
     page +=1;
     getAllMonsters();
 }
 
 function movePageBack(e) {
-    // e.preventDefault();
     page -=1;
     getAllMonsters();
 }
